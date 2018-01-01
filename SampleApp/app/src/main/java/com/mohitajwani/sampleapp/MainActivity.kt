@@ -6,7 +6,7 @@ import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 
-    private class Person(val name:String, val age:Int)
+    private class Person(val name: String, val age: Int)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         val person1 = Person("A", 10)
-        val person2 = Person(name="B", age=12)
-        val person3 = Person(age=15, name="C")
+        val person2 = Person(name = "B", age = 12)
+        val person3 = Person(age = 15, name = "C")
 
         Log.v(localClassName, "Person name = " + person1.name + "; age = " + person1.age)
         Log.w(localClassName, "Person name = " + person2.name + "; age = " + person2.age)
