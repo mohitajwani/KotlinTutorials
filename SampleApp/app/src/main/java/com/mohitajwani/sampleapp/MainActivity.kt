@@ -1,8 +1,11 @@
 package com.mohitajwani.sampleapp
 
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,13 +15,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /*
+        //Learning code
         Log.d(localClassName, "This is a simple log command")
 
-        for (i in 0..100) {
+        for (i in 1..100) {
             if (i % 5 == 0) {
-                Log.i(localClassName, "Fully Divisible by 5")
+                Log.i(localClassName, "Number " + i + " is Fully Divisible by 5")
             } else {
-                Log.i(localClassName, "NOT Fully Divisible by 5")
+                Log.i(localClassName, "Number " + i + " is NOT Fully Divisible by 5")
             }
         }
 
@@ -29,5 +34,9 @@ class MainActivity : AppCompatActivity() {
         Log.v(localClassName, "Person name = " + person1.name + "; age = " + person1.age)
         Log.w(localClassName, "Person name = " + person2.name + "; age = " + person2.age)
         Log.e(localClassName, "Person name = " + person3.name + "; age = " + person3.age)
+        */
+
+        recyclerView_main.layoutManager = LinearLayoutManager(this)
+        recyclerView_main.adapter = MainAdapter()
     }
 }
