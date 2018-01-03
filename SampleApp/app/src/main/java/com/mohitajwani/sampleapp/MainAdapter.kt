@@ -9,13 +9,13 @@ import kotlinx.android.synthetic.main.video_row.view.*
 /**
  * Created by Mohit Ajwani.
  */
-class MainAdapter: RecyclerView.Adapter<CustomViewHolder>() {
+class MainAdapter(val homeFeed: HomeFeed) : RecyclerView.Adapter<CustomViewHolder>() {
 
-    val videoTitles = listOf("First", "Second Title", "3rd One", "More Titles")
+    //val videoTitles = listOf("First", "Second Title", "3rd One", "More Titles")
 
     //number of items
     override fun getItemCount(): Int {
-        return videoTitles.size;
+        return homeFeed.videos.size;
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CustomViewHolder {
@@ -25,7 +25,8 @@ class MainAdapter: RecyclerView.Adapter<CustomViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder?, position: Int) {
-        holder?.view?.textView_video_title?.text = videoTitles.get(position)
+        val video = homeFeed.videos.get(position)
+        holder?.view?.textView_video_title?.text = video.name
     }
 }
 
