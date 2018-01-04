@@ -3,6 +3,7 @@ package com.mohitajwani.sampleapp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
@@ -10,6 +11,7 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
+    val TAG = MainActivity::class.simpleName
     private class Person(val name: String, val age: Int)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call?, response: Response?) {
                 val body = response?.body()?.string()
-                println(body)
+                Log.i(TAG, body)
 
                 val gson = GsonBuilder().create()
 
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call?, e: IOException?) {
-                println("Failed to execute call")
+                Log.e(TAG, "Failed to execute call")
             }
 
         })
