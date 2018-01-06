@@ -12,7 +12,7 @@ import java.io.IOException
 class MainActivity : AppCompatActivity() {
 
     val TAG = MainActivity::class.simpleName
-    private class Person(val name: String, val age: Int)
+    //private class Person(val name: String, val age: Int)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
