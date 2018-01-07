@@ -19,6 +19,7 @@ class CourseDetailActivity: AppCompatActivity() {
         setContentView(R.layout.activity_course_detail)
 
         recyclerView_courseDetail.layoutManager = LinearLayoutManager(this)
+        recyclerView_courseDetail.adapter = CourseDetailAdapter()
     }
 
     private class CourseDetailAdapter: RecyclerView.Adapter<CourseLessonViewHolder>() {
