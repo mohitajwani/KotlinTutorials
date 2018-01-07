@@ -20,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- We can use parent activity name or meta data for keeping parent activity. -->
         <activity
             android:name=".CourseDetailActivity"
             android:label="@string/course_detail_title"
