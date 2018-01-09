@@ -25,7 +25,7 @@ class CourseDetailActivity: AppCompatActivity() {
     private class CourseDetailAdapter: RecyclerView.Adapter<CourseLessonViewHolder>() {
 
         override fun onBindViewHolder(holder: CourseLessonViewHolder?, position: Int) {
-
+            //TODO: Set data here
         }
 
         override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CourseLessonViewHolder {
