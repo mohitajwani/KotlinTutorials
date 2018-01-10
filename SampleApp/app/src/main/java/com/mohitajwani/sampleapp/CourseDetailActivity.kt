@@ -1,5 +1,6 @@
 package com.mohitajwani.sampleapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -9,7 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.GsonBuilder
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_course_detail.*
+import kotlinx.android.synthetic.main.course_lesson_row.view.*
 import okhttp3.*
 import java.io.IOException
 
@@ -32,11 +35,7 @@ class CourseDetailActivity: AppCompatActivity() {
         fetchCourseDetailsJson()
     }
 
-    private class CourseDetailAdapter(): RecyclerView.Adapter<CourseLessonViewHolder>() {
-
-        override fun onBindViewHolder(holder: CourseLessonViewHolder?, position: Int) {
-            //val courseLesson = courseLessons.videos.get(position)
-        }
+    private class CourseDetailAdapter(val courseLessons: Array<CourseLesson>): RecyclerView.Adapter<CourseLessonViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CourseLessonViewHolder {
             val layoutInflater = LayoutInflater.from(parent?.context)
@@ -44,17 +43,33 @@ class CourseDetailActivity: AppCompatActivity() {
             return CourseLessonViewHolder(customView)
         }
 
+        override fun onBindViewHolder(holder: CourseLessonViewHolder?, position: Int) {
+            val courseLesson = courseLessons.get(position)
+            holder?.customView?.textView_lessonTitle?.text = courseLesson.name
+            holder?.customView?.textView_lessonDuration?.text = courseLesson.duration
+
+            val imageView = holder?.customView?.imageView_course_lesson
+            Picasso.with(holder?.customView?.context).load(courseLesson.imageUrl).into(imageView)
+
+            holder?.courseLesson = courseLesson
+        }
+
         override fun getItemCount(): Int {
-            return 5
+            return courseLessons.size
         }
 
     }
 
-    private class CourseLessonViewHolder(val customView: View): RecyclerView.ViewHolder(customView){
+    class CourseLessonViewHolder(val customView: View, var courseLesson: CourseLesson? = null): RecyclerView.ViewHolder(customView){
 
+        companion object {
+            val COURSE_LINK_KEY = "COURSE_LINK"
+        }
         init {
             customView.setOnClickListener {
-
+                val intent = Intent(customView.context, CourseLessonActivity::class.java)
+                intent.putExtra(COURSE_LINK_KEY, courseLesson?.link)
+                customView.context.startActivity(intent)
             }
         }
     }
@@ -76,9 +91,9 @@ class CourseDetailActivity: AppCompatActivity() {
 
                 val courseLessons = gson.fromJson(body, Array<CourseLesson>::class.java)
 
-//                runOnUiThread {
-//                    recyclerView_courseDetail.adapter = CourseDetailAdapter(courseLessons)
-//                }
+                runOnUiThread {
+                    recyclerView_courseDetail.adapter = CourseDetailAdapter(courseLessons)
+                }
             }
 
             override fun onFailure(call: Call?, e: IOException?) {
