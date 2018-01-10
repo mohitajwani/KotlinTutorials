@@ -2,4 +2,5 @@
     <string name="app_name">Sample App</string>
     <string name="home_title">Youtube App</string>
     <string name="course_detail_title">Course Detail</string>
+    <string name="course_lesson_title">Course Lesson</string>
 </resources>

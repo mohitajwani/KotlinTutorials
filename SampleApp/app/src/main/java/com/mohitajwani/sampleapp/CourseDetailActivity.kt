@@ -52,6 +52,11 @@ class CourseDetailActivity: AppCompatActivity() {
 
     private class CourseLessonViewHolder(val customView: View): RecyclerView.ViewHolder(customView){
 
+        init {
+            customView.setOnClickListener {
+
+            }
+        }
     }
 
     private fun fetchCourseDetailsJson() {
