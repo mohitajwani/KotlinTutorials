@@ -30,7 +30,7 @@ class CourseDetailActivity: AppCompatActivity() {
 
         override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CourseLessonViewHolder {
             val layoutInflater = LayoutInflater.from(parent?.context)
-            val customView = layoutInflater.inflate(R.layout.video_row, parent, false)
+            val customView = layoutInflater.inflate(R.layout.course_lesson_row, parent, false)
             return CourseLessonViewHolder(customView)
         }
 
