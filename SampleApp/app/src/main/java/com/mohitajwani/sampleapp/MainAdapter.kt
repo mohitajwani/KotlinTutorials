@@ -41,9 +41,13 @@ class MainAdapter(val homeFeed: HomeFeed) : RecyclerView.Adapter<CustomViewHolde
 
 class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view) {
 
+    companion object {
+        val VIDEO_TITLE_KEY = "VIDEO_TITLE"
+    }
     init {
         view.setOnClickListener {
             val intent = Intent(view.context, CourseDetailActivity::class.java)
+            intent.putExtra(VIDEO_TITLE_KEY, "Course Title")
             view.context.startActivity(intent)
         }
     }

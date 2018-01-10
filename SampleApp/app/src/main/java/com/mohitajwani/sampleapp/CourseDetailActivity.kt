@@ -20,6 +20,9 @@ class CourseDetailActivity: AppCompatActivity() {
 
         recyclerView_courseDetail.layoutManager = LinearLayoutManager(this)
         recyclerView_courseDetail.adapter = CourseDetailAdapter()
+
+        val navBarTitle = intent.getStringExtra(CustomViewHolder.VIDEO_TITLE_KEY)
+        supportActionBar?.setTitle(navBarTitle)
     }
 
     private class CourseDetailAdapter: RecyclerView.Adapter<CourseLessonViewHolder>() {
