@@ -1,6 +1,6 @@
 # KotlinTutorials
 
-## Kotlin Tutorials will be useful for making a sample Youtube App.
+### Kotlin Tutorials will be useful for making a sample Youtube App.
 All the information used in this sample repository is based on videos of Brian Voong of Let's Build That App. Check put the below links to his videos.
   <ol>
   <li>https://www.youtube.com/watch?v=jS0buQyfJfs</li>
