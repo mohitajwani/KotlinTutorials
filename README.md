@@ -11,5 +11,4 @@ All the information used in this sample repository is based on videos of Brian V
   <li>https://www.youtube.com/watch?v=UAyGjQBBsys</li>
   </ol>
   
-Checkout the Youtube Channel of Brian Voong for more of his tutorials.
-https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA
+Checkout the [Youtube Channel of Brian Voong](https://www.youtube.com/channel/UCuP2vJ6kRutQBfRmdcI92mA) for more of his tutorials.
